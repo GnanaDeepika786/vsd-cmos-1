@@ -68,7 +68,7 @@ By performing SPICE simulation ,we get a **Delay Table** for these buffer cells.
 By mapping the input slew (e.g., $40ps$, $60ps$) against output load (e.g., $30fF$, $50fF$) in the lookup matrices, we can determine the precise delay value at their intersection point.
 This delay tables for the level 1 and level 2 buffers is a direct result of transistor-level circuit design and SPICE simulation.
 
- ![Delay Table](CMOS-5(30775710287972).jpg).
+ ![Delay Table](CMOS-5(30775710287972).jpg)(CMOS-6(30775811277372).jpg)
  
 Therefore, SPICE plays a fundamental role in CMOS circuit design, as it allows us to characterize and
 evaluate circuit performance accurately before implementation.
@@ -78,11 +78,19 @@ evaluate circuit performance accurately before implementation.
 An NMOS is a **4-terminal device** composed of a Gate (G), Source (S), Drain (D), and Body/Substrate (B) built over a P-substrate with $n^+$ diffusion regions(source and drain).
 
 Above the substrate, there is a thin oxide layer, and on top of it a metal layer is deposited, which acts as the Gate terminal.
+ (CMOS-8(30775901979921).jpg)
 
+**Threshold Voltage:**
+Threshold voltage ($Vt$) is a very important parameter in MOSFET operation, all the characteristics of a device depends on this value
+Initially,
+**At $V_{gs} = 0V$:**
+*  Means source,drain and body terminals are grounded.
+*   P-substrate and n+ doped regions act as reverse-biased PN junction diode and as there is no potential so there is a high resistance. **No channel formation** is there.The device remains **Off**
 
-* **Channel Formation & Threshold Voltage ($V_{th}$):**
-  - **At $V_{gs} = 0V$:** The source-substrate and drain-substrate form reverse-biased p-n junctions. Channel resistance is extremely high, and the device remains **Off**.
-  - **Applying $+ve$ $V_{gs}$:** Positive charge on the gate repels holes and starts accumulating negative charges (electrons) underneath the gate oxide layer.
+i
+  
+**Applying $+ve$ $V_{gs}>0$:**
+Positive charge on the gate repels holes and starts accumulating negative charges (electrons) underneath the gate oxide layer.
   - **Inversion Layer:** Once $V_{gs}$ exceeds the threshold voltage ($V_{th}$), the semiconductor surface completely inverts into an **n-type material**, opening a conducting channel for current to flow from drain to source.
 * **Body Effect:** When an additional reverse bias voltage ($V_{sb}$) is applied between the source and the body substrate, the depletion layer width broadens near the source, which directly increases the device's threshold voltage ($V_{th}$).
 
