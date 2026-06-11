@@ -79,7 +79,7 @@ evaluate circuit performance accurately before implementation.
 An NMOS is a **4-terminal device** composed of a Gate (G), Source (S), Drain (D), and Body/Substrate (B) built over a P-substrate with $n^+$ diffusion regions(source and drain).
 
 Above the substrate, there is a thin oxide layer, and on top of it a metal layer is deposited, which acts as the Gate terminal.
-(CMOS-8(30775901979921).jpg)
+![](CMOS-8(30775901979921).jpg)
 
 #### Threshold Voltage:
 Threshold voltage ($Vt$) is a very important parameter in MOSFET operation, all the characteristics of a device depends on this value.
