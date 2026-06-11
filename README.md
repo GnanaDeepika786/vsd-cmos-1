@@ -68,7 +68,8 @@ By performing SPICE simulation ,we get a **Delay Table** for these buffer cells.
 By mapping the input slew (e.g., $40ps$, $60ps$) against output load (e.g., $30fF$, $50fF$) in the lookup matrices, we can determine the precise delay value at their intersection point.
 This delay tables for the level 1 and level 2 buffers is a direct result of transistor-level circuit design and SPICE simulation.
 
- ![Delay Table](CMOS-5(30775710287972).jpg)(CMOS-6(30775811277372).jpg)
+ ![Delay Table](CMOS-5(30775710287972).jpg)
+![](CMOS-6(30775811277372).jpg)
  
 Therefore, SPICE plays a fundamental role in CMOS circuit design, as it allows us to characterize and
 evaluate circuit performance accurately before implementation.
@@ -89,14 +90,14 @@ Initially,
 *  Means source,drain and body terminals are grounded.
 *  P-substrate and n+ doped regions act as reverse-biased PN junction diode and as there is no potential so there is a high resistance. **No channel formation** is there.The device remains **Off**
 
-(CMOS-10(30776008616005).jpg)
+![](CMOS-10(30776008616005).jpg)
   
 **Applying $+ve$ $V_{gs}>0$:**
 * Now positive charge on the gate repels holes or positive charge in substrate and starts attracting negative charges (electrons) below the gate oxide layer in the substrate.
 * This is beginning of the channel formation
 
-CMOS-11(30776084500038).jpg
-CMOS-12(30776129719787).jpg
+![](CMOS-11(30776084500038).jpg)
+![](CMOS-12(30776129719787).jpg)
 
 ### L3: Strong inversion and threshold voltage
 Due to the accumulation of negative charges,there will be formation of Depletion Region, depleting of substrates majority carriers i.e positive carriers here .
@@ -104,40 +105,40 @@ Due to the accumulation of negative charges,there will be formation of Depletion
   * More positive carriers are repelled
   * Increase of depletion region width
 
-CMOS-12(30776129719787).jpg
+![](CMOS-12(30776129719787).jpg)
  
   * **Inversion Layer:** At some point, the semiconductor surface completely converts into an **n-type material** from p-type,this process is called **Strong or Surface inversion**.
   * The gate voltage at which the strong inversion happens is called the **Threshold Voltage**
 
-CMOS-13(30776190348334).jpg
+![](CMOS-13(30776190348334).jpg)
 
 What will happen if we further increase Vgs>Vt?
 * As there are no more negative charges in the substrate that will be attracted towards the positive Vgs, The negative charges from n+ region will get attracted opening a conducting channel for current to flow from drain to source.
 * However,since there is no drain voltage,the current cannot flow from source to drain.
 
-CMOS-14(30776279997966).jpg
+![](CMOS-14(30776279997966).jpg)
 
 Now let us observe what happens when we change the **body (substrate) potential**.
 
 The depletion region beteween the source and body increases due to the reverse bias at source terminal
 
-CMOS-15(30776344977812).jpg
+![](CMOS-15(30776344977812).jpg)
 
 ### L4:Threshold voltage with positive substrate potential
 If we increase the Vgs,depletion region wil increase in both the cases. But in the second case as the +ve Vsb pulls few charges from channel will be pulled towards the source.
 * Results in slower inversion
 * Increases the value of threshold potential due to +ve Vsb
 
-CMOS-16(30776429513540).jpg
+![](CMOS-16(30776429513540).jpg)
 
-CMOS-17(30776499522357).jpg
+![](CMOS-17(30776499522357).jpg)
 
-CMOS-18(30776561651865).jpg
+![](CMOS-18(30776561651865).jpg)
 
 
 The relation between threshold voltage and substrate bias is given by parameters such as Gamma (γ), which are obtained from the fabrication process.
 
-CMOS-19(30776633170989).jpg
+![](CMOS-19(30776633170989).jpg)
 
 * **Conclusion(Body Effect):** When an additional reverse bias voltage ($V_{sb}$) is applied between the source and the body substrate, the depletion layer width broadens near the source, which directly increases the device's threshold voltage ($V_{th}$).
 
@@ -151,9 +152,9 @@ As the gate voltage (Vgs) increases:
 * The width of channel increases
 * More charge carriers are available for Conduction Channel Formation
 
-CMOS-21(30776790474539).jpg
+![](CMOS-21(30776790474539).jpg)
 
-CMOS-22(30776846132191).jpg
+![](CMOS-22(30776846132191).jpg)
 
  The induced charge in the channel is proportional to:
 
@@ -164,7 +165,7 @@ Vds = 0.05V
 Vt = 0.45V
 Vgs is slightly greater than Vt and small initially 
 
-CMOS-23(30776913061288).jpg
+![](CMOS-23(30776913061288).jpg)
 
 Since the source is grounded and drain is at some potential there will be formation of voltage gradient along the channel
 
@@ -172,7 +173,7 @@ Since the source is grounded and drain is at some potential there will be format
 
 The Effective Channel Width is slightly smaller than the actual channel width due to some fabrication factors
 
-CMOS-24(30776987423290).jpg
+![](CMOS-24(30776987423290).jpg)
 
  Here
  * y axis → the width of transistor
