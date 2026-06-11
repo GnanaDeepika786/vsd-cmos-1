@@ -161,8 +161,11 @@ As the gate voltage (Vgs) increases:
 **(Vgs - Vt)**
 
 Now, let us Assume:
+
 Vds = 0.05V
+
 Vt = 0.45V
+
 Vgs is slightly greater than Vt and small initially 
 
 ![](CMOS-23(30776913061288).jpg)
