@@ -64,19 +64,22 @@ By performing SPICE simulation ,we get a **Delay Table** for these buffer cells.
 * **Delay Tables (Look-up Tables):** In Static Timing Analysis (STA), circuit delays are calculated dynamically based on two key parameters:
   1. **Input Slew:** The transition speed of the incoming signal.
   2. **Output Load:** The total capacitance ($fF$) the node needs to drive.
- By mapping the input slew (e.g., $40ps$, $60ps$) against output load (e.g., $30fF$, $50fF$) in the lookup matrices, we can determine the precise delay value at their intersection point.
+
+By mapping the input slew (e.g., $40ps$, $60ps$) against output load (e.g., $30fF$, $50fF$) in the lookup matrices, we can determine the precise delay value at their intersection point.
 This delay tables for the level 1 and level 2 buffers is a direct result of transistor-level circuit design and SPICE simulation.
 
- ![Delay Table](images/z4.png).
+ ![Delay Table](CMOS-5(30775710287972).jpg).
  
 Therefore, SPICE plays a fundamental role in CMOS circuit design, as it allows us to characterize and
 evaluate circuit performance accurately before implementation.
 
 
 ### L2: Introduction to Basic Element in Circuit Design – NMOS
+An NMOS is a **4-terminal device** composed of a Gate (G), Source (S), Drain (D), and Body/Substrate (B) built over a P-substrate with $n^+$ diffusion regions(source and drain).
 
-## Section 3: NMOS Device Architecture and Threshold Voltage
-* **Device Structure:** An NMOS is a **4-terminal device** composed of a Gate (G), Source (S), Drain (D), and Body/Substrate (B) built over a P-substrate with $n^+$ diffusion regions.
+Above the substrate, there is a thin oxide layer, and on top of it a metal layer is deposited, which acts as the Gate terminal.
+
+
 * **Channel Formation & Threshold Voltage ($V_{th}$):**
   - **At $V_{gs} = 0V$:** The source-substrate and drain-substrate form reverse-biased p-n junctions. Channel resistance is extremely high, and the device remains **Off**.
   - **Applying $+ve$ $V_{gs}$:** Positive charge on the gate repels holes and starts accumulating negative charges (electrons) underneath the gate oxide layer.
