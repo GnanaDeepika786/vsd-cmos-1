@@ -34,11 +34,13 @@ This repository documents my hands-on technical progress during CMOS Circiut Des
 ### L1 Why do we need SPICE simulations?
 
  A CMOS circuit design has both PMOS and NMOS transistors are connected together in a specific different fashion to form logic gates such as NAND, NOR, AND, OR, etc. These basic gates are the building blocks of all digital circuits.A standard CMOS inverter is built using a PMOS connected to $V_{DD}$ and an NMOS connected to $V_{SS}$ driving a load capacitance ($C_L$).
+ 
  ![Inverter Circuit](CMOS-1(30775193327552).jpg)
+ 
  The above inverter circuit has certain electrical characteristics. To understand its behavior, we perform SPICE simulations which help us analyze important parameters such as delay, switching behavior, and performance. Based on these results, we can determine the proper W/L (Width/Length) ratio of the transistors.
 
 ### VTC Circuit and Waveform Plot
-![CMOS Inverter VTC Characteristics]()
+![CMOS Inverter VTC Characteristics](CMOS-2(30775566694972).jpg)
 
 * **Voltage Transfer Characteristics (VTC):** By plotting $V_{out}$ against $V_{in}$, we observe how the circuit switches b/w pmos and nmos. 
 * **Operating Regions:**
@@ -53,7 +55,7 @@ This repository documents my hands-on technical progress during CMOS Circiut Des
 SPICE (Simulation Program with Integrated Circuit Emphasis).Without SPICE, it would not be possible to calculate delays, and without delay information, 
 physical design and timing verification would not be meaningful.
 
-![Clock Network](images/z3.png)
+![Clock Network](CMOS-4(30775650902025).jpg)
 
  Suppose we perform CTS on a circuit using buffers that are connected with different capacitive loads at their outputs.
 By performing SPICE simulation ,we get a **Delay Table** for these buffer cells.
