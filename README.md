@@ -8,7 +8,7 @@ This repository documents my hands-on technical progress during CMOS Circiut Des
 * Module 4: Noise‑Margin Robustness Analysis
 * Module 5: Power‑Supply & Process‑Variation Evaluation
 
-**Tools:**
+**Tools Used:**
 * NGSpice + SKY130 PDK – Open‑source SPICE engine paired with accurate 130 nm device models for all simulations.
 * NGSpice Built‑in Plotter – Immediate waveform visualisation without external graphing packages.
 * VS Code / Vim Netlist Editor – Syntax‑highlighted templates that speed up deck creation and revision.
@@ -80,19 +80,113 @@ An NMOS is a **4-terminal device** composed of a Gate (G), Source (S), Drain (D)
 Above the substrate, there is a thin oxide layer, and on top of it a metal layer is deposited, which acts as the Gate terminal.
  (CMOS-8(30775901979921).jpg)
 
-**Threshold Voltage:**
-Threshold voltage ($Vt$) is a very important parameter in MOSFET operation, all the characteristics of a device depends on this value
+#### Threshold Voltage:
+Threshold voltage ($Vt$) is a very important parameter in MOSFET operation, all the characteristics of a device depends on this value.
+
 Initially,
+
 **At $V_{gs} = 0V$:**
 *  Means source,drain and body terminals are grounded.
-*   P-substrate and n+ doped regions act as reverse-biased PN junction diode and as there is no potential so there is a high resistance. **No channel formation** is there.The device remains **Off**
+*  P-substrate and n+ doped regions act as reverse-biased PN junction diode and as there is no potential so there is a high resistance. **No channel formation** is there.The device remains **Off**
 
 i
   
 **Applying $+ve$ $V_{gs}>0$:**
-Positive charge on the gate repels holes and starts accumulating negative charges (electrons) underneath the gate oxide layer.
-  - **Inversion Layer:** Once $V_{gs}$ exceeds the threshold voltage ($V_{th}$), the semiconductor surface completely inverts into an **n-type material**, opening a conducting channel for current to flow from drain to source.
-* **Body Effect:** When an additional reverse bias voltage ($V_{sb}$) is applied between the source and the body substrate, the depletion layer width broadens near the source, which directly increases the device's threshold voltage ($V_{th}$).
+* Now positive charge on the gate repels holes or positive charge in substrate and starts attracting negative charges (electrons) below the gate oxide layer in the substrate.
+* This is beginning of the channel formation
 
-### NMOS Structure and Channel Inversion
-![NMOS Cross Section Architecture](path_to_your_nmos_structure_image.png)
+i
+
+### L3: Strong inversion and threshold voltage
+Due to the accumulation of negative charges,there will be formation of Depletion Region, depleting of substrates majority carriers i.e positive carriers here .
+  The further increase in the gate voltage $V_{gs}$ results
+  * More positive carriers are repelled
+  * Increase of depletion region width
+
+i
+ 
+  * **Inversion Layer:** At some point, the semiconductor surface completely converts into an **n-type material** from p-type,this process is called **Strong or Surface inversion**.
+  * The gate voltage at which the strong inversion happens is called the **Threshold Voltage**
+
+i
+i
+
+What will happen if we further increase Vgs>Vt?
+* As there are no more negative charges in the substrate that will be attracted towards the positive Vgs, The negative charges from n+ region will get attracted opening a conducting channel for current to flow from drain to source.
+* However,since there is no drain voltage,the current cannot flow from source to drain.
+
+Now let us observe what happens when we change the body (substrate) potential.
+
+i
+
+The depletion region beteween the source and body increases due to the reverse bias at source terminal
+
+i
+
+### L4:Threshold voltage with positive substrate potential
+If we increase the Vgs,depletion region wil increase in both the cases. But in the second case as the +ve Vsb pulls few charges from channel will be pulled towards the source.
+* Results in slower inversion
+* Increases the value of threshold potential due to +ve Vsb
+
+ii
+
+The relation between threshold voltage and substrate bias is given by parameters such as Gamma (γ), which are obtained from the fabrication process.
+
+i
+
+
+* **Conclusion(Body Effect):** When an additional reverse bias voltage ($V_{sb}$) is applied between the source and the body substrate, the depletion layer width broadens near the source, which directly increases the device's threshold voltage ($V_{th}$).
+
+##  NMOS resistive region and saturation region of operation
+
+## L1: Resistive region of operation with small drain-source voltage
+In previous lectures, we have studied about the cut-off region. Now, we will study **the Resistive or Linear** region by applying a small drain-to-source voltage (Vds).
+
+As the gate voltage (Vgs) increases:
+
+* The width of channel increases
+* More charge carriers are available for Conduction Channel Formation
+
+i
+
+ The induced charge in the channel is proportional to:
+
+**(Vgs - Vt)**
+
+Now, let us Assume:
+Vds = 0.05V
+Vt = 0.45V
+Vgs is slightly greater than Vt and small initially 
+
+ii
+
+Since the source is grounded and drain is at some potential there will be formation of voltage gradient along the channel
+
+ i
+
+The Effective Channel Width is slightly smaller than the actual channel width due to some fabrication factors
+
+ i
+
+ Here
+ * y axis → the width of transistor
+ * x axis →  voltage across the channel.
+On applying Vds, every point on x axis will vary w.r.t to Vgs-V(x), this will decide the current equation.
+
+### L2: Drift current theory
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
