@@ -277,7 +277,7 @@ When Vds exceeds the value (Vgs-Vt) the region of operation is called "Saturatio
 
 ![](sky-24(386974047396548).jpg)
 
-![](This region is called as "Saturation region".
+This region is called as "Saturation region".
 
 ### L6: Drain current model for saturation region of operation
 At saturation region, the channel voltage is constant i.e 'Vgs-Vt', and the drain current will not depend on Vds.
@@ -301,69 +301,100 @@ This effect is called as ***Channel Length Modulation**
 
 First, let us understand the SPICE simulation setup.
 
-SPICE Setup
+**SPICE Setup**
+
+![](sky-27(386974101833700).jpg)
 
 Some parameters are fixed and provided by the foundry. These are pre-defined and do not need to be calculated manually.
 
-Parameters
+![](sky-28(386974118249374).jpg)
 
-Technology Values
+![](sky-29(386974133925966).jpg)
 
 By providing:
 
-SPICE model parameters
-SPICE netlist
+* SPICE model parameters
+* SPICE netlist
+
+When we feed the SPICE model parameters and SPICE netlist into the SPICE software,
 We can obtain device characteristics such as Id vs Vds for different Vgs values.
 
-SPICE Netlist
-To simulate a MOSFET, we must define its equivalent circuit in SPICE.
+**SPICE Netlist** is used to feed the MOSFET device into SPICE engine in specific manner by defining its equivalent circuit in SPICE for simulation.
 
-Equivalent Circuit
+![](sky-32(386974184789352).jpg)
 
-L2: Circuit Description in SPICE Syntax
+
+### L2: Circuit Description in SPICE Syntax
 To write a SPICE netlist, follow these steps:
 
-Define nodes
-Assign names to nodes
-Write component connections
-Node Definition
+* Define nodes
+* Assign names to nodes
+* Write component connections
+
+![](sky-33(386974202624791).jpg)
 
 A MOSFET has 4 terminals:
 
-Drain
-Gate
-Source
-Substrate
+* Drain
+* Gate
+* Source
+* Substrate
 It is written in the order: D G S B (DGSS format)
-
-Syntax Example Code Connections Full Netlist Another View
+The SPICE Syntax of a MOSFET underly b/w 4 terminals
+![](sky-34(386974220741196).jpg)
+![](sky-35(386974238402619).jpg)
+![](sky-36(386974257266820).jpg)
+![](sky-37(386974278015499).jpg)
+![](sky-38(386974294815899).jpg)
+![](sky-39(386974311765303).jpg)
+![](sky-40(386974335407732).jpg)
+![](sky-41(386974359259653).jpg)
 
 This represents a long-channel MOSFET.
 
-Similarly, SPICE syntax for a resistor is:
+Similarly, SPICE syntax for a resistor underly b/w 2 terminals is:
 
-Resistor Syntax Resistor Example Connection
+![](sky-42(386974370958253).jpg)
+![](sky-43(386974384667844).jpg)
+![](sky-44(386974398454968).jpg)
+![](sky-45(386974420193147).jpg)
 
-L3: Define Technology Parameters
-Each MOSFET requires a model file containing technology parameters.
+Similarly, SPICE syntax for a voltage source underly b/w 2 terminal is:
 
-Model File
+![](sky-46(386974444587193).jpg)
+![](sky-47(386974462009678).jpg)
+![](sky-48(386974480144889).jpg)
+![](sky-49(386974505627060).jpg)
+![](sky-50(386974523962873).jpg)
+![](sky-51(386974542141209).jpg)
+![](sky-52(386974557448142).jpg)
+
+### L3: Define Technology Parameters
+Each MOSFET requires a model file containing technology parameters.Now we will look for model of this particular NMOS.By using the technology parameters in model file it is easy to model the NMOS. The models for the name NMOS will be found in file which has the attribute of the similar name.
+
+![](sky-53(386974572430679).jpg)
 
 These parameters are defined inside model libraries.
 
-Model Parameters
+![](sky-54(386974588670374).jpg)
 
-We include these model files in our SPICE netlist.
+We include this packaged file in .mod file and call this file in the SPICE netlist.
 
-Include File
+![](sky-55(386974609440467).jpg)
 
-Top Level
+![](sky-56(386974630418326).jpg)
 
-Lines starting with * are comments in SPICE.
+In SPICE, Lines starting with ** * ** represents the comments.
 
-Comment Line
+![](sky-57(386974649025313).jpg)
 
-To analyze behavior, we sweep Vgs and Vds.
+![](sky-58(386974673603024).jpg)
+
+To analyze MOSFET behavior, we sweep Vgs and Vds.
+
+![](sky-60(386974706706238).jpg)
+
+![](sky-61(386974722335694).jpg)
 
 L4: First SPICE Simulation
 Steps:
