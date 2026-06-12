@@ -185,14 +185,14 @@ On applying Vds, every point on x axis will vary w.r.t to Vgs-V(x), this will de
 
 ### L2: Drift current theory
 We know that the effective channel voltage (Veff) will vary w.r.t x, 
-
+sky-2(386973605301613).jpg)
 Example:
 * At x = 0 → Vgs - V(x) = 1V
 * At x = Vds → Vgs - V(x) = 0.95V
 
-The induced charge equation is proportional to the effective channel voltage and depends on the position x
+![](sky-3(386973625413597).jpg)
 
-ii
+The induced charge equation is proportional to the effective channel voltage and depends on the position x
 
 **The types of current:**
 
@@ -202,11 +202,11 @@ Because of the potential difference across the channel there exists a drift curr
 
 Here, drift current dominates because of the electric field.
 
-ii
+![](sky-4(386973653148953).jpg)
 
 To calculate drain current, we consider the top view of the transistor.
 
-i
+![](sky-5(386973679111348).jpg)
 
  ### L3: Drain current model for linear region of operation
 Since there is a voltage variation along the channel which results in variation in carrier velocity.
@@ -215,13 +215,15 @@ Velocity depends on the following factors:
 * Mobility (μ)
 * Electric field (E)
 
-i
+![](sky-7(386973715675750).jpg)
 
 By integrating the above equation where,
 * limits of dV will be from 0 to Vds.
 * limits of dx will be from 0 to L.
 
-ii
+![](sky-8(386973733585404).jpg)
+
+![](sky-9(386973753458695).jpg)
 
 Technology parameters:
 
@@ -231,24 +233,15 @@ Technology parameters:
 * Threshold voltage (Vt)
 These parametes are helpful in SPICE simulations to find out the characteristics.
 
- i
+ ![](sky-10(386973772798949).jpg)
 
  But, here we cannot say that it is in Linear region, since the Drain current is the quadratic function of Vds. We will calculate the Id with the given values.
-
-i
 
  Now we can say that Even though equation is quadratic in Vds, the device behaves as **linear** when:
 
 **(Vgs - Vt) ≥ Vds**
 
-i
-
 ### L4: SPICE Conclusion for Resistive Operation
-
-We need to find the impact of Vgs and Vds on the drain current equation. We will consider different values of Vgs and Vds. If we consider different values of Vgs, under what condition the device will remain in Linear region depends on (Vgs-Vt) should be greater than Vds.
-
-Now the main question arises, How do we calculate Id for different values of 'Vgs' and at every value of 'Vgs', sweep Vds till (Vgs-Vt) using linear equation for Id?
-For this we need to do SPICE simulations.
 To analyze the impact of Vgs and Vds on the drain current,we will consider different values of Vgs and Vds as shown
 * Sweep Vgs
 * Sweep Vds
@@ -256,7 +249,9 @@ Condition for linear region:
 
 (Vgs - Vt) > Vds
 
-i
+![](sky-11(386973790176363).jpg)
+
+![](sky-12(386973828538815).jpg)
 
 But calculating Id for different values of Vgs and sweeping Vds until (Vgs-Vt) at every value is complex
 So,to calculate Id for different values:
@@ -268,29 +263,35 @@ When Vds exceeds the value (Vgs-Vt) the region of operation is called "Saturatio
 
 * When Vgs-Vds > Vt, there will be a conducting channel.
 
-i
+![](sky-17(386973910069199).jpg)
   
 * When Vgs-Vds = Vt, At drain side,  Inversion has just happened as it is equal to Vt, so channel will start disappearing at drain side.This is the beginnig of the **Pinch-off**
 
-iiii
+![](sky-20(386973965146073).jpg)
+
+![](sky-23(386974024666750).jpg)
+
+![](sky-25(386974063189743).jpg)
 
 * When Vgs-Vds < Vt, the channel has disappeared at drain side.
 
-i
+![](sky-24(386974047396548).jpg)
 
-This region is called as "Saturation region".
+![](This region is called as "Saturation region".
 
 ### L6: Drain current model for saturation region of operation
 At saturation region, the channel voltage is constant i.e 'Vgs-Vt', and the drain current will not depend on Vds.
 To get drain current equation in saturation region we will replace Vds as Vgs-Vt.
 
-i
+image
 
 According to the equation, the mosfet acts as perfect current source. But this is not true.
 * we can see that increasing Vds also increases the depletion region at the Drain which reduces the effective channel length
 * This causes slight increase in current (Resembles slight dependence of Vgs over Id )
 
-i
+![](x22.png)
+
+![](x23.png)
 
 This effect is called as ***Channel Length Modulation**
 
