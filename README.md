@@ -208,7 +208,95 @@ To calculate drain current, we consider the top view of the transistor.
 
 i
 
+ ### L3: Drain current model for linear region of operation
+Since there is a voltage variation along the channel which results in variation in carrier velocity.
 
+Velocity depends on the following factors:
+* Mobility (μ)
+* Electric field (E)
+
+i
+
+By integrating the above equation where,
+* limits of dV will be from 0 to Vds.
+* limits of dx will be from 0 to L.
+
+ii
+
+Technology parameters:
+
+* Oxide Capacitance (Cox)
+* Width and Length (W/L) ratio
+* Mobility (μn)
+* Threshold voltage (Vt)
+These parametes are helpful in SPICE simulations to find out the characteristics.
+
+ i
+
+ But, here we cannot say that it is in Linear region, since the Drain current is the quadratic function of Vds. We will calculate the Id with the given values.
+
+i
+
+ Now we can say that Even though equation is quadratic in Vds, the device behaves as **linear** when:
+
+**(Vgs - Vt) ≥ Vds**
+
+i
+
+### L4: SPICE Conclusion for Resistive Operation
+
+We need to find the impact of Vgs and Vds on the drain current equation. We will consider different values of Vgs and Vds. If we consider different values of Vgs, under what condition the device will remain in Linear region depends on (Vgs-Vt) should be greater than Vds.
+
+Now the main question arises, How do we calculate Id for different values of 'Vgs' and at every value of 'Vgs', sweep Vds till (Vgs-Vt) using linear equation for Id?
+For this we need to do SPICE simulations.
+To analyze the impact of Vgs and Vds on the drain current,we will consider different values of Vgs and Vds as shown
+* Sweep Vgs
+* Sweep Vds
+Condition for linear region:
+
+(Vgs - Vt) > Vds
+
+i
+
+But calculating Id for different values of Vgs and sweeping Vds until (Vgs-Vt) at every value is complex
+So,to calculate Id for different values:
+
+We will use **SPICE simulation** here.
+
+### L5: Pinch-off Region and Saturation
+When Vds exceeds the value (Vgs-Vt) the region of operation is called "Saturation Region". We know the channel voltage is Vgs-Vds. Now, we will increase the Vds.
+
+* When Vgs-Vds > Vt, there will be a conducting channel.
+
+i
+  
+* When Vgs-Vds = Vt, At drain side,  Inversion has just happened as it is equal to Vt, so channel will start disappearing at drain side.This is the beginnig of the **Pinch-off**
+
+iiii
+
+* When Vgs-Vds < Vt, the channel has disappeared at drain side.
+
+i
+
+This region is called as "Saturation region".
+
+### L6: Drain current model for saturation region of operation
+At saturation region, the channel voltage is constant i.e 'Vgs-Vt', and the drain current will not depend on Vds.
+To get drain current equation in saturation region we will replace Vds as Vgs-Vt.
+
+i
+
+According to the equation, the mosfet acts as perfect current source. But this is not true.
+* we can see that increasing Vds also increases the depletion region at the Drain which reduces the effective channel length
+* This causes slight increase in current (Resembles slight dependence of Vgs over Id )
+
+i
+
+This effect is called as ***Channel Length Modulation**
+
+## Introduction to SPICE
+
+### L1: Basic SPICE Setup
 
 
 
