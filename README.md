@@ -184,7 +184,29 @@ The Effective Channel Width is slightly smaller than the actual channel width du
 On applying Vds, every point on x axis will vary w.r.t to Vgs-V(x), this will decide the current equation.
 
 ### L2: Drift current theory
+We know that the effective channel voltage (Veff) will vary w.r.t x, 
 
+Example:
+* At x = 0 → Vgs - V(x) = 1V
+* At x = Vds → Vgs - V(x) = 0.95V
+
+The induced charge equation is proportional to the effective channel voltage and depends on the position x
+
+ii
+
+**The types of current:**
+
+* Drift current
+* Diffusion current
+Because of the potential difference across the channel there exists a drift current
+
+Here, drift current dominates because of the electric field.
+
+ii
+
+To calculate drain current, we consider the top view of the transistor.
+
+i
 
 
 
