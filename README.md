@@ -298,6 +298,107 @@ This effect is called as ***Channel Length Modulation**
 
 ### L1: Basic SPICE Setup
 
+First, let us understand the SPICE simulation setup.
+
+SPICE Setup
+
+Some parameters are fixed and provided by the foundry. These are pre-defined and do not need to be calculated manually.
+
+Parameters
+
+Technology Values
+
+By providing:
+
+SPICE model parameters
+SPICE netlist
+We can obtain device characteristics such as Id vs Vds for different Vgs values.
+
+SPICE Netlist
+To simulate a MOSFET, we must define its equivalent circuit in SPICE.
+
+Equivalent Circuit
+
+L2: Circuit Description in SPICE Syntax
+To write a SPICE netlist, follow these steps:
+
+Define nodes
+Assign names to nodes
+Write component connections
+Node Definition
+
+A MOSFET has 4 terminals:
+
+Drain
+Gate
+Source
+Substrate
+It is written in the order: D G S B (DGSS format)
+
+Syntax Example Code Connections Full Netlist Another View
+
+This represents a long-channel MOSFET.
+
+Similarly, SPICE syntax for a resistor is:
+
+Resistor Syntax Resistor Example Connection
+
+L3: Define Technology Parameters
+Each MOSFET requires a model file containing technology parameters.
+
+Model File
+
+These parameters are defined inside model libraries.
+
+Model Parameters
+
+We include these model files in our SPICE netlist.
+
+Include File
+
+Top Level
+
+Lines starting with * are comments in SPICE.
+
+Comment Line
+
+To analyze behavior, we sweep Vgs and Vds.
+
+L4: First SPICE Simulation
+Steps:
+
+Open VirtualBox
+Open terminal
+Clone the repository:
+git clone https://github.com/kunalg123/sky130CircuitDesignWorkshop.git
+
+inside the sky130_fd_pr directory we will see cells, models and tech files.
+
+image
+Inside the cells files we will see nfet and pfet cells, these cells we will be using.
+
+Inside nfet we will see spice libraries at different corners, we will select one such typical corner.
+image
+
+image
+We will see all the model paramteres required for the process.
+image
+
+image
+We have different W and L values which pre-described. For simulation we need to take any one value which is present inside the library.
+
+image
+Now go inside models --> lib.spice file. We will see library files which are present for nfet and pfet. The corner files are present, include Typical, slow-fast and fast-fast corner files.
+
+image image
+Inside design --> open day1 file.
+
+image image Above we see Vdd varying from 0 to 1.8 volts with step size of 0.1V and Vgs sweeping from 0 to 1.8V and with step size of 0.2V
+Let us do the spice simulations: image
+
+image image
+
+
 
 
 
