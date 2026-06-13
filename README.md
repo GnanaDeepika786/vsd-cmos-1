@@ -396,43 +396,89 @@ To analyze MOSFET behavior, we sweep Vgs and Vds.
 
 ![](sky-61(386974722335694).jpg)
 
-L4: First SPICE Simulation
-Steps:
+### L4: First SPICE Simulation
 
-Open VirtualBox
-Open terminal
-Clone the repository:
+* Open VirtualBox or Codespace
+* Open terminal
+* Clone the repository:
 git clone https://github.com/kunalg123/sky130CircuitDesignWorkshop.git
 
-inside the sky130_fd_pr directory we will see cells, models and tech files.
+![](1.jpg)
 
-image
+Open the sky130_fd_pr directory by using commands in the image shown we will see cells, models and tech files.
+
+![](2.jpg)
+
 Inside the cells files we will see nfet and pfet cells, these cells we will be using.
 
+![](3.jpg)
+
 Inside nfet we will see spice libraries at different corners, we will select one such typical corner.
-image
 
-image
+![](4.jpg)
+
 We will see all the model paramteres required for the process.
-image
 
-image
+![](5.jpg)
+
+![](6.jpg)
+
 We have different W and L values which pre-described. For simulation we need to take any one value which is present inside the library.
 
-image
-Now go inside models --> lib.spice file. We will see library files which are present for nfet and pfet. The corner files are present, include Typical, slow-fast and fast-fast corner files.
+![](7.jpg)
 
-image image
-Inside design --> open day1 file.
+Now go inside models, We will see library files which are present for nfet and pfet. 
 
-image image Above we see Vdd varying from 0 to 1.8 volts with step size of 0.1V and Vgs sweeping from 0 to 1.8V and with step size of 0.2V
-Let us do the spice simulations: image
+![](8.jpg)
 
-image image
+In sky130.lib.spice, The corner files are present, include Typical, slow-fast and fast-fast corner files.
 
+![](9.jpg)
 
+![](10.jpg)
 
+![](11.jpg)
 
+Now let us go into the all.spice file
+
+![](12.jpg)
+
+![](13.jpg)
+
+![](14.jpg)
+
+![](15.jpg)
+
+Now open design → day1:
+
+![](16.jpg)
+
+![](17.jpg)
+
+**Input:**
+
+From the above image,
+* Vdd is sweeping from 0 to 1.8V with step size of 0.1V
+* Vgs is sweeping from 0 to 1.8V with step size of 0.2V
+
+Now Let us run SPICE simulations:
+
+![](18.jpg)
+
+ Give plot **-Vdd#branch** command 
+ 
+![](19.jpg)
+
+**Output:**
+* Id vs Vds curves for different Vg
+
+![](20.jpg)
+
+![](21.jpg)
+
+![](22.jpg)
+
+![](23.jpg)
 
 
 
