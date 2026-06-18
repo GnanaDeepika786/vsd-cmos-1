@@ -486,11 +486,140 @@ Now Let us run SPICE simulations:
 ### L6 Step4- Merge PMOS-NMOS load curves and plot VTC
 
 # Day3-CMOS switching threshold and dynamic simulations
+
 ## Voltage transfer characteristics-SPICE simulations
+
 ### L1 SPICE deck creation for CMOS inverter
+
+Now let's simulate the VTC of CMOS inverter using a SPICE deck. It is a connectivity information (Netlist) which contains information about components of CMOS inverter, which defines:
+
+* Component Connectivity
+Here
+- M1 is PMOS
+- M2 is NMOS
+
+  
+* Component values
+Next, we define W/L ratios and voltage values. Equal sizing means balanced PMOS and NMOS strength.
+
+
+* Identify Nodes
+Then we identify nodes which are points where two components connect  to each other. SPICE runs simulations based on these nodes.
+
+
+* Name Nodes
+  Naming nodes ensures proper simulation which we can see them in model file 
+
+
+Now let's write Spice deck
+
+SPICE syntax for MOSFET:
+
+* Drain Gate Source Body(substrate) (**DGSS**)
+
+
 ### L2 SPICE simulation for CMOS inverter
+
+
+
+
+
+
+**Load Capacitance C_L**
+
+This can be a simple MOSFET or another CMOS inverter or a logic gate
+
+
+To find the VTC,we will only be sweeping the input voltage and measuring the output voltage.
+
+* Sweep Vin from 0 → Vdd (2.5V) with step size 0.05.
+
+
+**Model Files Library**
+
+All the information about the technological parameteres is inside the model files library.
+
+
+Now Let's do the SPICE simulations to get VTC
+* For Wn/ln = Wp/Lp = 1.5
+
+
+
+* For Wn/Ln=1.5, Wp/Lp=2.5 (PMOS width is 2.5 times more than NMOS)
+
+
+
+We observed that, when PMOS strength = NMOS Strength ,the previous graph has slightly shifted left side
+
+Increasing PMOS width:
+
+Makes PMOS stronger
+Shifts VTC left
+Output stays high longer
+
 ### L3 Labs Sky130 SPICE simulation for CMOS
+
+Now Let us plot the VTC of CMOS Inverter
+
+Let us go to the Day 3 file
+
+
+
+Here,
+* The W/L ratio of PMOS is 2.33 times greater than NMOS.
+* Sweeping Vin from 0 to 1.8V with step size of 0.01V and plotting the Vout.
+
+
+  
+Run the simulation type "ngspice file name" and "plot out vs in".
+
+
+
+**Switching Threshold (Vm):** A point where Vin = Vout
+Let us calculate the Switching Threshold. 
+Note : To zoom in the curve; press righ mouse button + hold it.
+
+We get,
+* switching threshold (Vm) = 0.876V
+
+**Transient analysis :** Transient analysis defines how input and output changes with respect to time.
+Now let's go inside the Day 3 transient SPICE file.
+
+
+
+* We are operating this in typical corner and W/L is same as before
+* we taking transient pulse from 0v to 1V with shift of 0 with rise time and fall time being 0.1ns and 0.1ns respectively, pulse width of 2ns and total time period of 4ns.
+
+
+  
+Run the Simulation by **plot out vs time in**
+
+
+We measure Delay at 50% of output curve (VDD) i.e 0.9V which is the switching voltage(Vm).
+
+
+* **Rise Delay :** Rising part of waveform
+
+
+
+**Rise delay = 2.484ns-2.149ns = 0.335ns**
+
+* **Fall Delay :** Falling part of waveform
+
+
+
+**Fall Delay = 4.335ns-4.052ns = 0.284ns**
+
+
+
+
+
+
+
+
+
 ## Static behaviour evaluation-CMOS inverter robustness-Switching Threshold
+
 ### L1 Switching Threshold, Vm
 ### L2 Analytical expression of Vm as a function of (W/L)n and (W/L)p
 ### L3 Analytical expression of (W/L)n and (W/L)p as a function of Vm
