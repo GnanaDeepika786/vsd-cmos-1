@@ -500,13 +500,156 @@ Now Let us run SPICE simulations:
 
 
 # Day4-CMOS Noise Margin robustness evaluation
+
 ## Static behaviour evaluation-CMOS inverter robustness-Noise Margin
+
 ### L1 Introduction to Noise Margin
-### L1 Introduction to Noise Margin
+
+Let us discuss the CMOS robustness towards Noise Margin
+
+**Noise Margin:** It is a measure of how much unwanted electrical noise a logic circuit can tolerate on its input without producing an incorrect output.It explains allowable noise range in CMOS inverter while transmitting logic 0 and 1.
+
+* **Ideal Inverter**
+  
+We observe that the output instantly switchines from higher voltage to lower voltage (VDD to 0) at VDD/2 and the slope is infinite
+  
+![](p4.jpg)
+
+* **Actual Inverter**
+  
+In practical, Due to presence of resistances and capacitances of a CMOS inverter there will be delay which gives a finite slope and transition become gradual.Also,unlike ideal the ouput Voltages can't exactly equal to VDD and 0
+
+slope = -1
+
+![](p5.jpg)
+
+![](p7.jpg)
+
+* VIL - Low Input Voltage
+  - Any input voltage level between 0 and VIL  will be treated as logic 0
+* VOL - Low output Voltage
+  - Any input voltage level between 0 and VOL will be treated as logic 0
+* VIH - High Input Voltage
+  - Any input voltage level between VIH and VDD will be treated as logic 1
+* VOH - High output Voltage
+  - Any input voltage level between VOH and VDD will be treated as logic 1
+
 ### L2 Noise Margin voltage paramters
+Let's see more practical case,
+
+![](p10.jpg)
+
+* When the 0<Vin<VIL --> output is VOH<Vout<Vdd ;
+* When the input is VOL<Vin<Vdd --> output is 0<Vout<VOL
+* At VOL<VOH<Vdd as VOH will become output high for the next inverter
+* At 0<VOL<VIL as VOL will become output low for the next inverter.
+
+
+
+Observation:
+
+* Slope is approximately equal to -1.
+  For example,
+
+  Slope = change in output voltage /change in input voltage
+
+      = (800mV -900mV)/(300mV-200mV)
+
+      = -1
+
+* Output voltage reduces with the increase in input voltage
+
+
 ### L3 Noise margin equation and summary
+Plot the Voltages on a scale from 0 to VDD
+
+![](p11.jpg)
+
+Let us calculate the Noise Margin equation 
+
+![](p12.jpg)
+
+These are the tolerable levels of noise
+
+* **High Noise Margin (NMH)** = VOH − VIH
+* **Low Noise Margin (NML)** = VIL − VOL
+
+In the Undefined region,the output logic level can swing between 'high' and 'low' which is a metastate.
+
+![](p13.jpg)
+
+Bumps in the tolerable region won't harm the output of a circuit.
+
+But for the Bumps in between VIL to VIH , the output is undefined.
+
 ### L4 Noise margin variation with respect to PMOS width
+
+Now let's observe the Noise Margin for different PMOS widths
+
+For wide range of noises,we consider
+- For PMOS : logic 1 on capacitor
+- For NMOS : logic 0 on capacitor
+
+* Find the points where slope = -1
+* calculate NMH and NML
+
+![](p14.jpg)
+
+![](p15.jpg)
+
+![](p16.jpg)
+
+![](p17.jpg)
+
+![](p18.jpg)
+
+PMOS width is responsible for getting capacitance charged which creates low resistance path as a result of it is able to hold charges for longtime
+
+![](p19.jpg)
+
+Due to fabrication imperfections ,Wp is not exactly equal to the x.Wn ,but CMOS Noise margin won't affect as we observe that NMH increases to certain point w.r.t PMOS width i.e 0.3 to 0.42 and then it doen't change then.This shows the CMOS Robustness towards Noise Margin
+
+The suitable ranges for Digital Design and Analog Design of CMOS VTC are
+
+![](p20.jpg)
+
+![](p21.jpg)
+
+
 ### L5 Sky130 Noise margin labs
+
+Let us calculate Noise Margin through SPICE simulation
+
+Let us go to the Day 4 file
+
+![](p22.jpg)
+
+We are taking 
+* Wp/Wn = 2.77
+* Tuning/sweeping the Vin from 0 to 1.8V with stepsize of 0.01V
+
+![](p23.jpg)
+
+Run the Simulation
+
+![](p24.jpg)
+
+![](p25.jpg)
+
+We will take the point where the slope is -1 ; 
+
+![](p27.jpg)
+
+We get
+* VOH = 1.70141
+* VIH = 0.97479
+* VOL = 0.107042
+* VIL = 0.773109
+
+** High Noise margin NMH = VOH - VIH = 1.70141 - 0.97479 = 0.726 **
+
+** Low Noise margin NML = VIL - VOL = 0.773109 - 0.107042 = 0.66 **
+
 
 # Day5-CMOS power supply and device variation robustness evaluation
 
