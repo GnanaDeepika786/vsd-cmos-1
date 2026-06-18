@@ -1,4 +1,9 @@
-# CMOS Circuit Design and SPICE Simulations using Sky130
+# VSD — CMOS Circuit Design on Cloud (with GUI/VNC)
+
+Run **Sky130 CMOS design labs** on GitHub Codespaces — entirely in your browser, with **ngspice**, **noVNC GUI desktop**, and ready-to-use **SPICE simulation decks**.
+No local setup required — everything runs inside your browser tab. CMOS Circuit Design and SPICE Simulations using Sky130
+
+
 This repository documents my hands-on technical progress during CMOS Circiut Desgin using SPICE Simulations using SKY130 workshop organized by VLSI System Design(VSD).YHe focus of this workshop is device-level characterizationand robustness analysis using open-source EDA tools
 
 **Workshop Flow:**
@@ -8,24 +13,6 @@ This repository documents my hands-on technical progress during CMOS Circiut Des
 * Module 4: Noise‑Margin Robustness Analysis
 * Module 5: Power‑Supply & Process‑Variation Evaluation
 
-**Tools Used:**
-* NGSpice + SKY130 PDK – Open‑source SPICE engine paired with accurate 130 nm device models for all simulations.
-* NGSpice Built‑in Plotter – Immediate waveform visualisation without external graphing packages.
-* VS Code / Vim Netlist Editor – Syntax‑highlighted templates that speed up deck creation and revision.
-* Bash & Make Scripts – Automate multi‑corner sweeps and parameter studies in a single command.
-* Git & GitHub – Version‑control every deck, share lab results, and reproduce plots with full traceability.
-
-**Lab Exercises:**
-* MOSFET DC Characterisation – Sweep Id‑Vds/Vgs to extract Vt, µ, and channel‑length modulation.
-* CMOS Inverter VTC Sizing – Adjust (W/L) ratios, overlay switching‑threshold curves, and balance delays.
-* Transient Delay Profiling – Apply PULSE stimuli, measure tpHL/tpLH, and correlate with load capacitance.
-* Noise‑Margin Exploration – Compute NMH/NML, inject glitches, and map safe versus undefined logic regions.
-* Supply‑&‑Corner Sweep – Step VDD from 1.8 V to 0.6 V and run TT/SS/FF corners to derive guard‑band guidelines.
-
-**Projects Covered in the Workshop:**
-* Design & Characterisation of a CMOS Inverter – Size PMOS/NMOS pairs, generate VTC plots, and optimise switching‑threshold and rise/fall delays.
-* Noise‑Margin & Delay Analysis of an Inverter Chain – Evaluate NMH/NML and timing through TT/SS/FF corners and sub‑1 V supply sweeps.
-* PVT‑Aware Low‑Power Standard Cell – Build a process‑tolerant library cell, script parametric sweeps, and document guard‑band guidelines for tape‑out.
 
 # **Day 1 - Basics of NMOS Drain current (Id) vs Drain-to-source Voltage (Vds)**
 
@@ -482,127 +469,201 @@ Now Let us run SPICE simulations:
 
 
 
+# Day2-Velocity saturation and basics of CMOS inverter VTC
+## SPICE simulation for lower nodes and velocity saturation effect
+### L1 SPICE simulation for lower nodes
+### L2 Drain current vs gate voltage for long and short channel device
+### L3 Velocity saturation at lower and higher electric fields
+### L4 Velocity saturation drain current model
+### L5 Labs Sky130 Id-Vgs
+### L6 Labs Sky130 Vt
+## CMOS voltage transfer characteristics (VTC)
+### L1 MOSFET as a switch
+### L2 Introduction to standard MOS voltage current parameters
+### L3 PMOS/NMOS drain current vs drain voltage
+### L4 Step1- Convert PMOS gate-source-voltage to Vin
+### L5 Step2 & Step3- Convert PMOS and NMOS drain-source-voltage to Vout
+### L6 Step4- Merge PMOS-NMOS load curves and plot VTC
+
+# Day3-CMOS switching threshold and dynamic simulations
+## Voltage transfer characteristics-SPICE simulations
+### L1 SPICE deck creation for CMOS inverter
+### L2 SPICE simulation for CMOS inverter
+### L3 Labs Sky130 SPICE simulation for CMOS
+## Static behaviour evaluation-CMOS inverter robustness-Switching Threshold
+### L1 Switching Threshold, Vm
+### L2 Analytical expression of Vm as a function of (W/L)n and (W/L)p
+### L3 Analytical expression of (W/L)n and (W/L)p as a function of Vm
+### L4 Static and Dynamic simulation of CMOS inverter
+### L5 Static and Dynamic simulation of CMOS inverter with increased PMOS width
+### L6 Applications of CMOS inverter in clock network and STA
+
+
+# Day4-CMOS Noise Margin robustness evaluation
+## Static behaviour evaluation-CMOS inverter robustness-Noise Margin
+### L1 Introduction to Noise Margin
+### L1 Introduction to Noise Margin
+### L2 Noise Margin voltage paramters
+### L3 Noise margin equation and summary
+### L4 Noise margin variation with respect to PMOS width
+### L5 Sky130 Noise margin labs
+
+# Day5-CMOS power supply and device variation robustness evaluation
+
+## Static behaviour evaluation-CMOS inverter robustness-Power supply variation
+
+### L1 Smart SPICE simulations for power supply variations
+
+Power Supply Scaling is also tells about the robustness of an CMOS inverter.
+
+When gate length scales reduced:
+
+* Supply voltage (VDD) is reduced
+* Power consumption reduces
+* But circuit performance sholud not change
+
+Let us observe this Power supply scaling by follwing simulations
+
+Let us check whether CMOS inverter characteristics remain stable under different VDD values.
+
+
+
+
+
+We can see that as VDD decreases,Output swing reduces and Transition becomes slower which reduced the gain
+
+
+### L2 Advantages and disadvantages using low supply voltage
+
+Let us observe the **Gain factor** for the above waveform
+
+* Gain = Change in output voltage/change in input voltage
+
+     = dVout/dVin
+
+We get
+* For High VDD → Higher gain
+* For Low VDD → Reduced gain
+
+
+
+Energy efficiency is improved
+
+
+Power Consumpution has decreased with the value of VDD and the disadvantages of low supply voltage Due to low supply voltage, the charging and discharging of load capacitor becomes very slow, due to this the Both rise delay and fall delay will increase and lead to a performance impact.
+
+### L3 Sky130 Supply variation Labs
+
+Let us go to the Day 5 supply variation file.
+
+
+The initial supply voltage is 1.8V and we are reducing it with the step of 0.2V, so there will be 6 iterations.
+
+
+Now let us calculate the gain
+
+* Vdd=1.8V
+
+
+
+|Gain| = 7.6229
+
+* Vdd=0.8V
+
+image
+|Gain| = 9.3844
+
+
+## Static behaviour evaluation-CMOS inverter robustness-Device variation
+### L1 Sources of variation - Etching process
+Let us discuss about the Sources of Variation
+* Etching Process
+* Oxide Thickness
+
+**Etching Process :** In a single inverter layout, we will see the length of gate, the width(common area between polysilicon and diffusion).
+
+There will be a variation in gate length and gate width of CMOS due to the inacuraccies in the Etching Process
+
+
+In the inverter chain, the variation can vary with different inverter like with respect to the position of inverter as shown in the diagrams.
+
+
+* Edges - More Variation
+* Center -less Variation
+
+
+Hence,the change in w and L can change the drain current of CMOS inverter.
+
+
+### L2 Sources of variation - Oxide thickness
+
+**Oxide Thickness :** If we see the cross-sectional area of CMOS inverter, we can observe the oxide under polysilicon gate.During the fabrication oxide thickness may vary.
+
+
+Observe the ideal thickness and actual thickness.
+
+
+* **Cox=Eox/Tox**
+* The change in Tox can change the drain current (from equation) which leads to change in characterisitcs of CMOS inverter.
+
+
+
+### L3 Smart SPICE simulation for device variations
+For device variations, let us simulate two extreme conditions.
+* For strong PMOS and week NMOS : PMOS width is wider and it has least resistance, NMOS has high resistance
+* For weak PMOS and strong PMOS : NMOS width is wider and it has least resistance, PMOS has high resistance
+
+
+### L4 Conclusion
+
+
+
+
+We can observe that
+
+* Strong PMOS:
+ - Higher pull-up strength
+ - Vm shifts to right
+
+* Strong NMOS:
+  -Higher pull-down strength
+  -Vm shifts to left
+  
+* In both the extreme cases there is a negelible variation, Therefore it behaves as a robust inverter in both the cases.
+
+* It shows that CMOS inverter still maintains its functionality irrespective of power supply device variations
+
+### L5 Sky130 device variations labs
+
+Let us go to the Day 5 device variation file.
+
+Considering width of WP > WN.It is strong PMOS and weak NMOS.
+
+**Observation :**
+* Vm shifts towards right
+
+
+**Tools Used:**
+* NGSpice + SKY130 PDK – Open‑source SPICE engine paired with accurate 130 nm device models for all simulations.
+* NGSpice Built‑in Plotter – Immediate waveform visualisation without external graphing packages.
+* VS Code / Vim Netlist Editor – Syntax‑highlighted templates that speed up deck creation and revision.
+* Bash & Make Scripts – Automate multi‑corner sweeps and parameter studies in a single command.
+* Git & GitHub – Version‑control every deck, share lab results, and reproduce plots with full traceability.
+
+**Lab Exercises:**
+* MOSFET DC Characterisation – Sweep Id‑Vds/Vgs to extract Vt, µ, and channel‑length modulation.
+* CMOS Inverter VTC Sizing – Adjust (W/L) ratios, overlay switching‑threshold curves, and balance delays.
+* Transient Delay Profiling – Apply PULSE stimuli, measure tpHL/tpLH, and correlate with load capacitance.
+* Noise‑Margin Exploration – Compute NMH/NML, inject glitches, and map safe versus undefined logic regions.
+* Supply‑&‑Corner Sweep – Step VDD from 1.8 V to 0.6 V and run TT/SS/FF corners to derive guard‑band guidelines.
+
+**Projects Covered in the Workshop:**
+* Design & Characterisation of a CMOS Inverter – Size PMOS/NMOS pairs, generate VTC plots, and optimise switching‑threshold and rise/fall delays.
+* Noise‑Margin & Delay Analysis of an Inverter Chain – Evaluate NMH/NML and timing through TT/SS/FF corners and sub‑1 V supply sweeps.
+* PVT‑Aware Low‑Power Standard Cell – Build a process‑tolerant library cell, script parametric sweeps, and document guard‑band guidelines for tape‑out.
 
 
 
 
 
 
-
-
-# VSD-CMOS — CMOS Circuit Design on Cloud (with GUI/VNC)
-
-Run **Sky130 CMOS design labs** on GitHub Codespaces — entirely in your browser, with **ngspice**, **noVNC GUI desktop**, and ready-to-use **SPICE simulation decks**.
-No local setup required — everything runs inside your browser tab.
-
----
-
-## 1. Launch the Codespace
-
-From your GitHub repository page:
-
-1. Click on **Code → Codespaces → Create codespace on main**
-   ![Create Codespace](images/1.jpg)
-
-GitHub will automatically create a cloud-based Ubuntu environment for you.
-All setup and dependencies are pre-configured.
-
----
-
-## 2. Start ngspice and Verify Installation
-
-Once inside Codespace, open a **terminal** and type:
-
-```bash
-ngspice
-exit
-```
-
-You’ll see the ngspice version banner confirming installation.
-![ngspice verification](images/2_1.jpg)
-
-If ngspice exits successfully, your setup is ready.
-
-
----
-
-## 3. Enable GUI / noVNC Desktop
-
-This Codespace comes with a full **graphical desktop environment** accessible through **noVNC**.
-Check the **PORTS** tab for a forwarded VNC link, typically on port `6080`.
-
-![ngspice terminal view](images/2_2.jpg)
-
-
-Click the forwarded address and click on "**vnc_lite.html**" as shown in below image — it opens a Linux desktop in your browser:
-
-![noVNC port forwarding](images/3_1.jpg)
-
-
-Use this environment to visualize ngspice plots and waveforms interactively.
-
----
-
-## 4. Navigate to Workshop Files
-
-Switch to your workspace folder:
-
-
-```bash
-cd /workspaces/vsd-cmos
-ls -ltr
-```
-
-You’ll see the folder `sky130CircuitDesignWorkshop/` that contains design files.
-
-
-![VNC directory listing](images/3_2.jpg)
----
-
-## 5. Run SPICE Simulations (with Plot Output)
-
-Move into the design folder and execute any `.spice` file:
-
-```bash
-cd /workspaces/vsd-cmos/sky130CircuitDesignWorkshop/design
-ngspice day1_nfet_idvds_L2_W5.spice
-```
-
-![workspace layout](images/4.jpg)
-
-
-This opens an ngspice waveform window in the GUI (via noVNC) as shown in above image.
-
-You’ll see drain current vs. voltage characteristics plotted interactively — just as in a local desktop.
-
----
-
-## 6. Folder Structure
-
-```
-vsd-cmos/
-├── README.md
-├── images/                         # screenshots for this documentation
-└── sky130CircuitDesignWorkshop/
-    └── design/                     # SPICE decks, model files, and plots
-```
-
----
-
-## 7. Troubleshooting
-
-* **Blank VNC Screen:** Wait a few seconds for the GUI to initialize or refresh the browser tab.
-* **No ngspice plots:** Ensure you are running ngspice inside the VNC terminal (not VS Code terminal).
-* **Port not visible:** Reopen the **Ports** tab → click **Add Port** → set to `6080` → make it public or private as needed.
-
----
-
-## Credits
-
-Developed as part of the **VSD CMOS Circuit Design Workshop** using **Sky130 PDK** and **ngspice-36**.
-Codespace provisioning and environment are maintained by **VSD (VLSI System Design)**.
-
----
-
-**Now, simulate your first CMOS circuit — completely on the cloud.**
-Learn. Design. Run. Visualize.
