@@ -513,7 +513,7 @@ Let us discuss the CMOS robustness towards Noise Margin
   
 We observe that the output instantly switchines from higher voltage to lower voltage (VDD to 0) at VDD/2 and the slope is infinite
   
-![](p4.jpg)
+![](images/p4.jpg)
 
 * **Actual Inverter**
   
@@ -521,9 +521,9 @@ In practical, Due to presence of resistances and capacitances of a CMOS inverter
 
 slope = -1
 
-![](p5.jpg)
+![](images/p5.jpg)
 
-![](p7.jpg)
+![](images/p7.jpg)
 
 * VIL - Low Input Voltage
   - Any input voltage level between 0 and VIL  will be treated as logic 0
@@ -537,14 +537,12 @@ slope = -1
 ### L2 Noise Margin voltage paramters
 Let's see more practical case,
 
-![](p10.jpg)
+![](images/p10.jpg)
 
 * When the 0<Vin<VIL --> output is VOH<Vout<Vdd ;
 * When the input is VOL<Vin<Vdd --> output is 0<Vout<VOL
 * At VOL<VOH<Vdd as VOH will become output high for the next inverter
 * At 0<VOL<VIL as VOL will become output low for the next inverter.
-
-
 
 Observation:
 
@@ -563,11 +561,11 @@ Observation:
 ### L3 Noise margin equation and summary
 Plot the Voltages on a scale from 0 to VDD
 
-![](p11.jpg)
+![](images/p11.jpg)
 
 Let us calculate the Noise Margin equation 
 
-![](p12.jpg)
+![](images/p12.jpg)
 
 These are the tolerable levels of noise
 
@@ -576,7 +574,7 @@ These are the tolerable levels of noise
 
 In the Undefined region,the output logic level can swing between 'high' and 'low' which is a metastate.
 
-![](p13.jpg)
+![](images/p13.jpg)
 
 Bumps in the tolerable region won't harm the output of a circuit.
 
@@ -593,27 +591,27 @@ For wide range of noises,we consider
 * Find the points where slope = -1
 * calculate NMH and NML
 
-![](p14.jpg)
+![](images/p14.jpg)
 
-![](p15.jpg)
+![](images/p15.jpg)
 
-![](p16.jpg)
+![](images/p16.jpg)
 
-![](p17.jpg)
+![](images/p17.jpg)
 
-![](p18.jpg)
+![](images/p18.jpg)
 
 PMOS width is responsible for getting capacitance charged which creates low resistance path as a result of it is able to hold charges for longtime
 
-![](p19.jpg)
+![](images/p19.jpg)
 
 Due to fabrication imperfections ,Wp is not exactly equal to the x.Wn ,but CMOS Noise margin won't affect as we observe that NMH increases to certain point w.r.t PMOS width i.e 0.3 to 0.42 and then it doen't change then.This shows the CMOS Robustness towards Noise Margin
 
 The suitable ranges for Digital Design and Analog Design of CMOS VTC are
 
-![](p20.jpg)
+![](images/p20.jpg)
 
-![](p21.jpg)
+![](images/p21.jpg)
 
 
 ### L5 Sky130 Noise margin labs
@@ -622,23 +620,23 @@ Let us calculate Noise Margin through SPICE simulation
 
 Let us go to the Day 4 file
 
-![](p22.jpg)
+![](images/p22.jpg)
 
 We are taking 
 * Wp/Wn = 2.77
 * Tuning/sweeping the Vin from 0 to 1.8V with stepsize of 0.01V
 
-![](p23.jpg)
+![](images/p23.jpg)
 
 Run the Simulation
 
-![](p24.jpg)
+![](images/p24.jpg)
 
-![](p25.jpg)
+![](images/p25.jpg)
 
 We will take the point where the slope is -1 ; 
 
-![](p27.jpg)
+![](images/p27.jpg)
 
 We get
 * VOH = 1.70141
