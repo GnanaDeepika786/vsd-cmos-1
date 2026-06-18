@@ -494,24 +494,29 @@ Now Let us run SPICE simulations:
 Now let's simulate the VTC of CMOS inverter using a SPICE deck. It is a connectivity information (Netlist) which contains information about components of CMOS inverter, which defines:
 
 * Component Connectivity
-Here
+  
+Here,
+
 - M1 is PMOS
 - M2 is NMOS
 
 ![](images/n2.jpg)
   
 * Component values
+  
 Next, we define W/L ratios and voltage values. Equal sizing means balanced PMOS and NMOS strength.
 
 ![](images/n5.jpg)
 
 * Identify Nodes
+  
 Then we identify nodes which are points where two components connect  to each other. SPICE runs simulations based on these nodes.
 
 ![](images/n6.jpg)
 
 * Name Nodes
-  Naming nodes ensures proper simulation which we can see them in model file 
+  
+ Naming nodes ensures proper simulation which we can see them in model file 
 
 ![](images/n7.jpg)
 
@@ -562,8 +567,8 @@ We observed that, when PMOS strength = NMOS Strength ,the previous graph has sli
 
 * Increasing PMOS width:
 
- -Makes PMOS stronger
- -Output stays high longer
+ - Makes PMOS stronger
+ - Output stays high longer
 
 ### L3 Labs Sky130 SPICE simulation for CMOS
 
@@ -586,7 +591,9 @@ Run the simulation type "ngspice file name" and "plot out vs in".
 ![](images/n26.jpg)
 
 **Switching Threshold (Vm):** A point where Vin = Vout
+
 Let us calculate the Switching Threshold. 
+
 Note : To zoom in the curve; press righ mouse button + hold it.
 
 ![](images/n27.jpg)
@@ -597,6 +604,7 @@ We get,
 * switching threshold (Vm) = 0.876V
 
 **Transient analysis :** Transient analysis defines how input and output changes with respect to time.
+
 Now let's go inside the Day 3 transient SPICE file.
 
 ![](images/n29.jpg)
