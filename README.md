@@ -644,9 +644,9 @@ We get
 * VOL = 0.107042
 * VIL = 0.773109
 
-** High Noise margin NMH = VOH - VIH = 1.70141 - 0.97479 = 0.726 **
+**High Noise margin NMH = VOH - VIH = 1.70141 - 0.97479 = 0.726**
 
-** Low Noise margin NML = VIL - VOL = 0.773109 - 0.107042 = 0.66 **
+**Low Noise margin NML = VIL - VOL = 0.773109 - 0.107042 = 0.66**
 
 
 # Day5-CMOS power supply and device variation robustness evaluation
