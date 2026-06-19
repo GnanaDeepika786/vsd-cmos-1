@@ -644,31 +644,40 @@ We measure Delay at 50% of output curve (VDD) i.e 0.9V which is the switching vo
 
 CMOS logic can be used in the logic gate designing and CMOS inveretes is a robust device.Let us understand it
 
+![](images/a2.jpg)
+
 Now Let us compare the two different CMOS inverters with different W/L ratios of PMOS and NMOS,we can observe that 
 * Shape of the VTC is same
 * Switching threshold is different which shows the robustnesss of CMOS inverter.
 
-
-
+![](images/a4.jpg)
 
 We can find the Switching threshold(Vm) in both the cases by drawing a 45 degree line.
 * At Vin = 0 and Vout = Vdd vice versa No current flows in CMOS inverter
 * At Vin = Vout = Vm the maximum current flows in CMOS inverter and it enters into Saturation
 
-
+![](images/a6.jpg)
 
 At this particular operating region Vm, 
 * _Vgs>>Vt_
 * There is a posibility of leakage current as the current flows directly from _Power to Load_
-  
+
+  ![](images/a7.jpg)
 
 ### L2 Analytical expression of Vm as a function of (W/L)n and (W/L)p
 Let us now calculate the value of Switching Voltage (Vm)  w.r.t the width and lengths of NMOS and PMOS.
 
 Ignore the value of Vt as Vgs is far greater
 
-The values kp',Vdsat and W/L etc.. are in model files
+![](images/a8.jpg)
 
+![](images/a9.jpg)
+
+![](images/a10.jpg)
+
+![](images/a13.jpg)
+
+The values kp',Vdsat and W/L etc.. are in model files
 
 By the equation ,We see that Vm depends on:
 
@@ -685,12 +694,20 @@ We need to choose W/L such that **Vm ≈ Vdd/2** in which CMOS acts as a symmetr
 
 From Current Equation **_Idsn=-Idsp_**
 
+![](images/a.16jpg)
 
+![](images/a17.jpg)
+
+![](images/a18.jpg)
+
+![](images/a19.jpg)
+
+![](images/a20.jpg)
 
 Now ,we can find W/L ratios if we know Vm. This will allow us to find out for what value of W/L ratio of PMOS will be greater than NMOS based on
  values of Vm.
 
-
+![](images/a22.jpg)
 
 ### L4 Static and Dynamic simulation of CMOS inverter
 
@@ -698,31 +715,32 @@ Now let us caluculate the Vm for different widths of PMOS and observe the CMOS b
 
 * For (W/L)n = (W/L)p = 1.5
 
+![](images/a22.jpg)
 
  -  _Static Simulation → VTC curve_
  -  _Dynamic Simulation → Delay behavior_
 
-By doing Transient Analysis, we can calculate the Rise Delay anf Fall Delay just like before
+By doing Transient Analysis, we can calculate the Rise Delay and Fall Delay just like before
 
-
+![](images/a35.jpg)
 
 ### L5 Static and Dynamic simulation of CMOS inverter with increased PMOS width
 
 * (W/L)p = 2(W/L)n
 
-
+![](images/a42.jpg)
 
 * (W/L)p = 3(W/L)n
 
-
+![](images/a43.jpg)
 
 * (W/L)p = 4(W/L)n
 
-
+![](images/a44.jpg)
 
 * (W/L)p = 5(W/L)n
 
-
+![](images/a45.jpg)
 
 **Observation:**
  - As the PMOS width increases ,the rise delay significantly decreases and Vm increases eventually
@@ -735,6 +753,7 @@ By doing Transient Analysis, we can calculate the Rise Delay anf Fall Delay just
 ### L6 Applications of CMOS inverter in clock network and STA
 From the above experiments,we get
 
+![](images/a46.jpg)
 
 **Conclusions :**
 
@@ -750,20 +769,23 @@ For Example, 1.2V to 1.25V there is barle 50mV difference So, the slight variati
 
 If we set Vm, from 1.2V to 1.3V then we will get a inverter which has symmetry of particular cell. 
 
+![](images/a47.jpg)
+
 This is a typical characteristic of Clock Inverter/buffer where we want the rise delay and fall delay to be equal.
 But in this case Rise Delay and Fall Delay are not equal 
 
-
+![](images/a48.jpg)
 
 We design an inverter for which Rise Delay and Fall Delay are equal
 
 where ,
 * PMOS resistance = NMOS resistance
   
+The other types of PMOS widths will be used according to the data path requirement
 
-Other types of cells can be used according to the data path requirement
+![](images/a50.jpg)
 
-
+![](images/a51.jpg)
 
 * Saved Area
 * Reduced delays for datapath
