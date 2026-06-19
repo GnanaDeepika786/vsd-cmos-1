@@ -4,7 +4,7 @@ Run **Sky130 CMOS design labs** on GitHub Codespaces — entirely in your browse
 No local setup required — everything runs inside your browser tab. CMOS Circuit Design and SPICE Simulations using Sky130
 
 
-This repository documents my hands-on technical progress during CMOS Circiut Desgin using SPICE Simulations using SKY130 workshop organized by VLSI System Design(VSD).YHe focus of this workshop is device-level characterizationand robustness analysis using open-source EDA tools
+This repository documents my hands-on technical progress during **CMOS Circiut Desgin using SPICE Simulations using SKY130 workshop** organized by **VLSI System Design(VSD)**.The focus of this workshop is device-level characterization and robustness analysis using open-source EDA tools
 
 **Workshop Flow:**
 * Module 1: MOSFET Fundamentals & SPICE Setup
