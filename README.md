@@ -62,7 +62,7 @@ Therefore, SPICE plays a fundamental role in CMOS circuit design, as it allows u
 evaluate circuit performance accurately before implementation.
 
 
-### L2: Introduction to Basic Element in Circuit Design – NMOS
+### L2 Introduction to Basic Element in Circuit Design – NMOS
 An NMOS is a **4-terminal device** composed of a Gate (G), Source (S), Drain (D), and Body/Substrate (B) built over a P-substrate with $n^+$ diffusion regions(source and drain).
 
 Above the substrate, there is a thin oxide layer, and on top of it a metal layer is deposited, which acts as the Gate terminal.
@@ -86,7 +86,7 @@ Initially,
 ![](images/CMOS-11(30776084500038).jpg)
 ![](images/CMOS-12(30776129719787).jpg)
 
-### L3: Strong inversion and threshold voltage
+### L3 Strong inversion and threshold voltage
 Due to the accumulation of negative charges,there will be formation of Depletion Region, depleting of substrates majority carriers i.e positive carriers here .
   The further increase in the gate voltage $V_{gs}$ results
   * More positive carriers are repelled
@@ -111,7 +111,7 @@ The depletion region beteween the source and body increases due to the reverse b
 
 ![](images/CMOS-15(30776344977812).jpg)
 
-### L4:Threshold voltage with positive substrate potential
+### L4 Threshold voltage with positive substrate potential
 If we increase the Vgs,depletion region wil increase in both the cases. But in the second case as the +ve Vsb pulls few charges from channel will be pulled towards the source.
 * Results in slower inversion
 * Increases the value of threshold potential due to +ve Vsb
@@ -131,7 +131,7 @@ The relation between threshold voltage and substrate bias is given by parameters
 
 ##  NMOS resistive region and saturation region of operation
 
-## L1: Resistive region of operation with small drain-source voltage
+## L1 Resistive region of operation with small drain-source voltage
 In previous lectures, we have studied about the cut-off region. Now, we will study **the Resistive or Linear** region by applying a small drain-to-source voltage (Vds).
 
 As the gate voltage (Vgs) increases:
@@ -159,8 +159,6 @@ Vgs is slightly greater than Vt and small initially
 
 Since the source is grounded and drain is at some potential there will be formation of voltage gradient along the channel
 
-
-
 The Effective Channel Width is slightly smaller than the actual channel width due to some fabrication factors
 
 ![](images/CMOS-24(30776987423290).jpg)
@@ -170,7 +168,7 @@ The Effective Channel Width is slightly smaller than the actual channel width du
  * x axis →  voltage across the channel.
 On applying Vds, every point on x axis will vary w.r.t to Vgs-V(x), this will decide the current equation.
 
-### L2: Drift current theory
+### L2 Drift current theory
 We know that the effective channel voltage (Veff) will vary w.r.t x, 
 sky-2(386973605301613).jpg)
 Example:
@@ -195,7 +193,7 @@ To calculate drain current, we consider the top view of the transistor.
 
 ![](images/sky-5(386973679111348).jpg)
 
- ### L3: Drain current model for linear region of operation
+ ### L3 Drain current model for linear region of operation
 Since there is a voltage variation along the channel which results in variation in carrier velocity.
 
 Velocity depends on the following factors:
@@ -228,7 +226,7 @@ These parametes are helpful in SPICE simulations to find out the characteristics
 
 **(Vgs - Vt) ≥ Vds**
 
-### L4: SPICE Conclusion for Resistive Operation
+### L4 SPICE Conclusion for Resistive Operation
 To analyze the impact of Vgs and Vds on the drain current,we will consider different values of Vgs and Vds as shown
 * Sweep Vgs
 * Sweep Vds
@@ -245,7 +243,7 @@ So,to calculate Id for different values:
 
 We will use **SPICE simulation** here.
 
-### L5: Pinch-off Region and Saturation
+### L5 Pinch-off Region and Saturation
 When Vds exceeds the value (Vgs-Vt) the region of operation is called "Saturation Region". We know the channel voltage is Vgs-Vds. Now, we will increase the Vds.
 
 * When Vgs-Vds > Vt, there will be a conducting channel.
@@ -266,7 +264,7 @@ When Vds exceeds the value (Vgs-Vt) the region of operation is called "Saturatio
 
 This region is called as "Saturation region".
 
-### L6: Drain current model for saturation region of operation
+### L6 Drain current model for saturation region of operation
 At saturation region, the channel voltage is constant i.e 'Vgs-Vt', and the drain current will not depend on Vds.
 To get drain current equation in saturation region we will replace Vds as Vgs-Vt.
 
@@ -284,7 +282,7 @@ This effect is called as ***Channel Length Modulation**
 
 ## Introduction to SPICE
 
-### L1: Basic SPICE Setup
+### L1 Basic SPICE Setup
 
 First, let us understand the SPICE simulation setup.
 
@@ -311,7 +309,7 @@ We can obtain device characteristics such as Id vs Vds for different Vgs values.
 ![](images/sky-32(386974184789352).jpg)
 
 
-### L2: Circuit Description in SPICE Syntax
+### L2 Circuit Description in SPICE Syntax
 To write a SPICE netlist, follow these steps:
 
 * Define nodes
@@ -356,7 +354,7 @@ Similarly, SPICE syntax for a voltage source underly b/w 2 terminal is:
 ![](images/sky-51(386974542141209).jpg)
 ![](images/sky-52(386974557448142).jpg)
 
-### L3: Define Technology Parameters
+### L3 Define Technology Parameters
 Each MOSFET requires a model file containing technology parameters.Now we will look for model of this particular NMOS.By using the technology parameters in model file it is easy to model the NMOS. The models for the name NMOS will be found in file which has the attribute of the similar name.
 
 ![](images/sky-53(386974572430679).jpg)
@@ -383,7 +381,7 @@ To analyze MOSFET behavior, we sweep Vgs and Vds.
 
 ![](images/sky-61(386974722335694).jpg)
 
-### L4: First SPICE Simulation
+### L4 First SPICE Simulation
 
 * Open VirtualBox or Codespace
 * Open terminal
@@ -562,7 +560,7 @@ We have have 4 regions of operations:
 * Cut Off
 * Linear
 * Saturation
-* Velocity Saturation**
+* Velocity Saturation
   
 **Velocity Saturation :**
 
@@ -608,6 +606,9 @@ For small values of Vds, we neglect (1+λVds) term
 
 * Another technology parameter is **Vdsat** it defines at what value of voltage the device enter into velocity saturation
   simply ,where velocity saturation begins.
+
+#### Cut-off Region Equation
+* Device is OFF i.e Id=0
 
 #### Saturation Region Equation
 * When Vgs-Vt i.e Vgt is minimum implies Vds is maximum
@@ -677,7 +678,7 @@ The above graph is Id vs Vds for different values of Vgs.
 
 For peak current,press left click on mouse at Vgs=1.8V
 
-Peak current ≈ 198µA
+Peak current ≈ 197.5µA
 
 **Id-Vgs**
 
