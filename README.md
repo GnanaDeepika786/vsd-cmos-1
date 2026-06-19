@@ -18,7 +18,7 @@ This repository documents my hands-on technical progress during **CMOS Circiut D
 * ###  [Day 1 - Basics of NMOS Drain Current ($I_d$) vs Drain-to-source Voltage ($V_{ds}$)](#day1-basics-of-nmos-drain-currentid-vs-drain-to-source-voltagevds)
   * #### [Introduction to Circuit Design and Spice Simulations](#introduction-to-circuit-design-and-spice-simulations)
     * [ ] [L1 Why do we need SPICE simulations?](#l1-why-do-we-need-spice-simulations)
-    * [ ] [L2 Introduction to basic element in circuit design - NMOS](#l2-introduction-to-basic-element-in-circuit-design-nmos)
+    * [ ] [L2 Introduction to basic element in circuit design-NMOS](#l2-introduction-to-basic-element-in-circuit-design-nmos)
     * [ ] [L3 Strong inversion and threshold voltage](#l3-strong-inversion-and-threshold-voltage)
     * [ ] [L4 Threshold voltage with positive substrate potential](#l4-threshold-voltage-with-positive-substrate-potential)
   * #### [NMOS Resistive Region and Saturation Region of Operation](#nmos-resistive-region-and-saturation-region-of-operation)
@@ -60,7 +60,7 @@ This repository documents my hands-on technical progress during **CMOS Circiut D
     * [ ] [L1 Switching Threshold, Vm](#l1-switching-threshold-vm)
     * [ ] [L2 Analytical expression of Vm as a function of (W/L)n and (W/L)p](#l2-analytical-expression-of-vm-as-a-function-of-wln-and-wlp)
     * [ ] [L3 Analytical expression of (W/L)n and (W/L)p as a function of Vm](#l3-analytical-expression-of-wln-and-wlp-as-a-function-of-vm)
-    * [ ] [L4 Static and Dynamic simulation of CMOS inverter](#l4-static-and-dynamic-simulation of-cmos-inverter)
+    * [ ] [L4 Static and Dynamic simulation of CMOS inverter](#l4-static-and-dynamic-simulation-of-cmos-inverter)
     * [ ] [L5 Static and Dynamic simulation of CMOS inverter with increased PMOS width](#l5-static-and-dynamic-simulation-of-cmos-inverter-with-increased-pmos-width)
     * [ ] [L6 Applications of CMOS inverter in clock network and STA](#l6-applications-of-cmos-inverter-in-clock-network-and-sta)
 
@@ -68,7 +68,7 @@ This repository documents my hands-on technical progress during **CMOS Circiut D
   * #### [Static Behaviour Evaluation - CMOS Inverter Robustness - Noise Margin](#static-behaviour-evaluation-cmos-inverter-robustness-noise-margin)
     * [ ] [L1 Introduction to Noise Margin](#l1-introduction-to-noise-margin)
     * [ ] [L2 Noise Margin voltage parameters](#l2-noise-margin-voltage-paramters)
-    * [ ] [L3 Noise margin equation and summary](#l3-noise-margin-equation and-summary)
+    * [ ] [L3 Noise margin equation and summary](#l3-noise-margin-equation-and-summary)
     * [ ] [L4 Noise margin variation with respect to PMOS width](#l4-noise-margin-variation-with-respect-to-pmos-width)
     * [ ] [L5 Sky130 Noise margin labs](#l5-sky130-noise-margin-labs)
 
@@ -296,7 +296,7 @@ These parametes are helpful in SPICE simulations to find out the characteristics
 
 **(Vgs - Vt) ≥ Vds**
 
-### L4 SPICE Conclusion for Resistive Operation
+### L4 SPICE Conclusion for resistive operation
 To analyze the impact of Vgs and Vds on the drain current,we will consider different values of Vgs and Vds as shown
 * Sweep Vgs
 * Sweep Vds
@@ -313,7 +313,7 @@ So,to calculate Id for different values:
 
 We will use **SPICE simulation** here.
 
-### L5 Pinch-off Region and Saturation
+### L5 Pinch-off region condition
 When Vds exceeds the value (Vgs-Vt) the region of operation is called "Saturation Region". We know the channel voltage is Vgs-Vds. Now, we will increase the Vds.
 
 * When Vgs-Vds > Vt, there will be a conducting channel.
@@ -534,6 +534,10 @@ Now Let us run SPICE simulations:
 ![](images/22.jpg)
 
 ![](images/23.jpg)
+
+### L5 SPICE lab with Sky130 models
+
+We can see that W and L values are in microns
 
 # Day2-Velocity saturation and basics of CMOS inverter VTC
 
@@ -1201,6 +1205,7 @@ Now let us caluculate the Vm for different widths of PMOS and observe the CMOS b
 By doing Transient Analysis, we can calculate the Rise Delay and Fall Delay just like before
 
 ![](images/a35.jpg)
+
 
 ### L5 Static and Dynamic simulation of CMOS inverter with increased PMOS width
 
