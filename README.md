@@ -268,7 +268,7 @@ This region is called as "Saturation region".
 At saturation region, the channel voltage is constant i.e 'Vgs-Vt', and the drain current will not depend on Vds.
 To get drain current equation in saturation region we will replace Vds as Vgs-Vt.
 
-image
+![](images/x21.png)
 
 According to the equation, the mosfet acts as perfect current source. But this is not true.
 * we can see that increasing Vds also increases the depletion region at the Drain which reduces the effective channel length
@@ -278,7 +278,7 @@ According to the equation, the mosfet acts as perfect current source. But this i
 
 ![](images/x23.png)
 
-This effect is called as ***Channel Length Modulation**
+This effect is called as **Channel Length Modulation**
 
 ## Introduction to SPICE
 
