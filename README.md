@@ -721,12 +721,157 @@ Vt ≈ 0.76V
 
 
 ## CMOS voltage transfer characteristics (VTC)
+
 ### L1 MOSFET as a switch
+
+From the device point of view let us see how simple _MOSFET_ acts as _Switch_
+
+
+
+* PMOS -  on the top of CMOS   - source connected to VDD
+* NMOS - on the bottom of CMOS - source connected to VSS(ground)
+
+The Load Capacitor C_L at the drain can be connected as input to the next inverter it can de a wire,inverter or a logic gate
+
+Biasing of CMOS inverter
+
+* When |Vgs| < Vt → Device OFF (open switch)
+* When |Vgs| > Vt → Device ON (closed switch)
+
+Conditions for PMOS
+
+* _Vgs_p <-Vt : Turn ON_
+* _Vgs_p >-Vt : Turn OFF_
+
+Conditions for NMOS
+
+* _Vgs_n > +Vt : Turn ON_
+* _Vgs_n < +Vt : Turn OFF_
+
 ### L2 Introduction to standard MOS voltage current parameters
+
+By varying,
+Boundary Conditions
+- At Vin = Vdd (high)
+- At Vin = 0 (low).
+  
+By using the  the  above conditions we will calculate  individual equivalent circuits and merge them to we can get Voltage Transfer Characteristics(VTC)
+
+Let Vdd= 5V 
+* When **Vin = Vdd**,then
+  - Vgs_n = 5 - 0 = 5V - NMOS ON  - acts as a closed switch
+  - Vgs_p = 5 - 5 = 0V - PMOS OFF - acts as a open switch
+
+
+
+* When **Vin = 0**,then
+  - Vgs_n = 0 - 0 = 0V - NMOS ON  - acts as a closed switch
+  - Vgs_p = 0 - 5 = -5V - PMOS OFF - acts as a open switch
+
+**Output Capacitor Behaviour**
+
+We can observe that when Vin=Vdd There is a direct path that exists between Vss and Vout, the capacitor C_L discharges through the resistor.
+Similarly when Vin=0 there is a direct path exists between Vdd and Vout, C_L charges.
+
+But the direction os current is not same
+
+**Naming Convention**
+
+
+
 ### L3 PMOS/NMOS drain current vs drain voltage
+
+As the direction of current is reverse _Ids_p = -Ids_n_
+
+
+We applied the reverse potential to the PMOS 
+Now, we get the curve between Ids_n Vs Vds_n and Ids_p Vs Vds_p, it is as shown below.
+
+
+
 ### L4 Step1- Convert PMOS gate-source-voltage to Vin
+
+We have lot of terms of internal voltages like Vgs,Vds,Vgd..tec, but when we see in logic block point of view(user's perspective) .We can have only two voltages _Vin_ and _Vout_. The Internal node voltages are not visible because they can not be used in digital design.
+
+So we need to convert every node voltage into the function of this two voltages _Vin_ and _Vout_
+
+To get rid of this node voltages, we modify the load curves of NMOS and PMOS to calculate the VTC and eventually we get to know the delay.
+
+Let us assume that it is a long channel device with Vdd=2V
+
+We know that Vgs_p = Vin − Vdd
+
+             Vin = Vgs_p + Vdd
+
+
+
+
+#### Step 1
+
+The graph of PMOS in terms of Idsn and also the corresponding Vin value of Vgs_p is being plotted as shown in the below graph.
+
+_Ids_n = -Ids_p_
+
+
+
+
+
+
+
+
 ### L5 Step2 & Step3- Convert PMOS and NMOS drain-source-voltage to Vout
+
+#### Step 2
+Now Let us convert Vds_p into the function of output voltage Vout. 
+
+We know Vds_p = Vout - Vdd
+
+        Vout = Vds_p + Vdd
+        
+ So to get Vout, there is a shift of Vdd towards left hand side.
+
+
+**Observations :** 
+
+* When Vout = 2V ,we have Vds_p = 0V and Vdd = 2V (given), then the current is zero and capacitor at the output gets discharged. This is true only when PMOS is in combination with NMOS and forms a CMOS inverter.
+* When Vout = 0V, we have Vdsp = -2V and Vdd = 2V, so at every gate voltage of Vin we will see a finite current whenever Vout = 0V. As Vout=0V, the capacitor is completely discharged and we need to charge that, so that is the charging current required.
+
+Therefore ,the load curve for PMOS is
+
+
+
+
+#### Step 3
+Now Let us try to get the "load curve" for NMOS transistor in terms of Vin and Vout
+
+We know that,
+
+NMOS relation is simple: Vgsn = Vin
+
+                         Vdsn = Vout
+
+
+
+
+
 ### L6 Step4- Merge PMOS-NMOS load curves and plot VTC
+
+We are now able to obtain the Voltage Transfer Characteristics (VTC) by merging the load curves of NMOS and PMOS for CMOS inverter.
+
+For this ,we will superimpose both of the Load Curves and by joining the intersection points between NMOS and PMOS load curves gives VTC.
+
+**Operating regions :**
+
+The range of Vin and Vout is 0V-2V.
+
+* At Vin = 0V, Vout = 2V → NMOS is Cut Off region,PMOS is in Linear region
+* At Vin = 0.5V, 1.5V < Vout < 2V → NMOS is in Saturation region,PMOS is in Linear region.
+* At Vin = 1V, 0.5V < Vout < 1.5V → NMOS and PMOS are in Saturation region.
+* At Vin = 1.5V, 0 < Vout <0.5V → NMOS is Linear region,PMOS is in Saturation region.
+* At Vin = 2V, Vout = 0V → NMOS is in linear region,PMOS is Cut Off
+
+
+The slope gives high gain at the sharp transition region because any small change in Vin causes huge change in Vout
 
 # Day3-CMOS switching threshold and dynamic simulations
 
