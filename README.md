@@ -132,7 +132,7 @@ Therefore, SPICE plays a fundamental role in CMOS circuit design, as it allows u
 evaluate circuit performance accurately before implementation.
 
 
-### L2 Introduction to Basic Element in Circuit Design – NMOS
+### L2 Introduction to basic element in circuit design-NMOS
 An NMOS is a **4-terminal device** composed of a Gate (G), Source (S), Drain (D), and Body/Substrate (B) built over a P-substrate with $n^+$ diffusion regions(source and drain).
 
 Above the substrate, there is a thin oxide layer, and on top of it a metal layer is deposited, which acts as the Gate terminal.
@@ -296,7 +296,7 @@ These parametes are helpful in SPICE simulations to find out the characteristics
 
 **(Vgs - Vt) ≥ Vds**
 
-### L4 SPICE Conclusion for resistive operation
+### L4 SPICE conclusion to resistive operation
 To analyze the impact of Vgs and Vds on the drain current,we will consider different values of Vgs and Vds as shown
 * Sweep Vgs
 * Sweep Vds
@@ -537,7 +537,9 @@ Now Let us run SPICE simulations:
 
 ### L5 SPICE lab with Sky130 models
 
-We can see that W and L values are in microns
+![](images/13.jpg)
+
+In all.spice file,we can see that W and L values are in microns
 
 # Day2-Velocity saturation and basics of CMOS inverter VTC
 
