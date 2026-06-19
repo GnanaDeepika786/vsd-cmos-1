@@ -475,7 +475,7 @@ Now Let us run SPICE simulations:
 
 We have observed the curve for Id vs Vds for different values of Vgs.
 
-
+![](images/v2.jpg)
 
 In the above graph:
 
@@ -491,19 +491,24 @@ This is how the Id equation maps the graphical curves
 
 Now, we take different values of W and L while keeping W/L constant. Ideally, we expect Id should remain the same, but practically, it does not obeys.
 
-Below is the SPICE deck where only W and L are changed and evrything remians same
+Below is the SPICE deck where only W and L are changed and everything remians same
 
+![](images/v3.jpg)
+
+![](images/v4.jpg)
+
+![](images/v10.jpg)
 
 
 ### L2 Drain current vs gate voltage for long and short channel device
 
 Plot Id at different values of Vgs and Vds
 
-
-
+![](images/v12.jpg)
 
 Let us compare the two simulations.
 
+![](images/v13.jpg)
 
 
 **Observations :**
@@ -526,11 +531,12 @@ Now we plot Id vs Vgs graph seeping Vds to 2.5V with a step size of 2.5 i.e Vds=
 
 This syntax means the left-side parameter is swept/tuned for every value of the right-side parameter.
 
-
+![](images/v14.jpg)
 
 
 For short channel device (L = 0.25µm):
 
+![](images/v24.jpg)
 
 Any Device L<=0.25 is a short channel device
 
@@ -539,11 +545,16 @@ Any Device L<=0.25 is a short channel device
 
 For Short Channel Devices,we will see more of a linear behaviour as the Vgs increases (Id vs Vgs). This is due to velocity saturation effect.
 
+![](images/v24.jpg)
+
 * Higher values of Vgs - Linear Function of Id
 * Lower values of Vgs - Quadratic Function of Id
 
 Velocity Saturation is one of the Short Channel Effect which becomes one of region for operating the lower nodes 
 
+![](images/v25.jpg)
+
+![](images/v26.jpg)
 
 For lower nodes,
 
@@ -568,20 +579,32 @@ Velocity increases linearly with electric field over certain electric field valu
 
 From the Device physicis point of view
 
+![](images/v27.jpg)
+
+![](images/v30.jpg)
+
+![](images/v31.jpg)
 
 We will now Re-derive Id
 
+![](images/v31.jpg)
+
+![](images/v32.jpg)
+
 The velocity saturation happens at higher values of Vgs
 
-
+![](images/v34.jpg)
 
 ### L4 Velocity saturation drain current model
 Here we are considering large values of Vgs
 
+![](images/v35.jpg)
+
 * Let Vgs − Vt = Vgt
 
-
 For small values of Vds, we neglect (1+λVds) term
+
+![](images/v36.jpg)
 
 * Another technology parameter is **Vdsat** it defines at what value of voltage the device enter into velocity saturation
   simply ,where velocity saturation begins.
@@ -589,21 +612,27 @@ For small values of Vds, we neglect (1+λVds) term
 #### Saturation Region Equation
 * When Vgs-Vt i.e Vgt is minimum implies Vds is maximum
 
+![](images/v38.jpg)
 
+![](images/v39.jpg)
 
 #### Resistive Region Equation
 * When Vds is minimum i.e the lower values derive drain current Id 
 
-
+![](images/v41.jpg)
 
 #### Velocity Saturation Region Equation
 
 * When Vd sat is minimum
 
+![](images/v44.jpg)
 
+![](images/v45.jpg)
 
 
 In the above equation, it seems when W is constant and L is lowered then Id should increase, But it is not so practically.
+
+![](images/v46.jpg)
 
 **Observation :**
 
@@ -621,24 +650,28 @@ Let us simulate drain characteristics
  
  Now go to the Day 2 Vds file.
 
-
+![](images/v49.jpg)
 
  We are taking L=0.15u and W=0.39u.
  * Sweeping Vgs from 0 → 1.8V with step of 0.2V.
  * Sweeping Vds from 0 → 1.8V with step of 0.1V.
 
+![](images/v50.jpg)
  
 Run the Simulation
 
+![](images/v51.jpg)
 
-
-
+![](images/v52.jpg)
 
 The above graph is Id vs Vds for different values of Vgs. 
 
 * For low values of Vgs → Quadratic behaviour
 * For high values of Vgs → Linear behavior
 
+![](images/v53.jpg)
+
+![](images/v54.jpg)
 
 **Peak Current :**
 
@@ -652,15 +685,20 @@ let us simulate transfer characteristics
 
 Now go to the Day 2 Vgs file.
 
-
+![](images/v55.jpg)
 
  We are taking same L=0.15u and W=0.39u.
 
 * Keeping Vds constant at 1.8V
 * Sweeping Vgs from 0 → 1.8V with step of 0.1V.
 
+![](images/v56.jpg)
  
 Run the Simulation
+
+![](images/v57.jpg)
+
+![](images/v58.jpg)
 
 The above graph is Id vs Vgs at Vds = 1.8V. 
 
@@ -670,11 +708,9 @@ Due to Velocity Saturation or Short Channel Effect ,we have linear behaviour for
 
 Now Let us calculate Threshold Voltage Vt for Id vs Vgs curve.
 
-
-
 To find Vt we will draw tangent on the curve and see where it touches on the x-axis.
 
-
+![](images/v59.jpg)
 
 Threshold Voltage (Vt) is the voltage where current increases drastically for small change in Vgs.
 
