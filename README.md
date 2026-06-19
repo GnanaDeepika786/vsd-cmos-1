@@ -889,7 +889,7 @@ The range of Vin and Vout is 0V-2V.
 * At Vin = 1.5V, 0 < Vout <0.5V → NMOS is Linear region,PMOS is in Saturation region.
 * At Vin = 2V, Vout = 0V → NMOS is in linear region,PMOS is Cut Off
 
-![](images/s37.jpg)
+![](images/VTC.jpg)
 
 The slope gives high gain at the sharp transition region because any small change in Vin causes huge change in Vout
 
